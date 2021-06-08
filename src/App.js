@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, } from 'react'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 import Header from './Pages/Header';
 import TodoList from './Pages/TodoList';

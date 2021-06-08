@@ -154,7 +154,7 @@ const Header = ({all, done, pending, setTodos, }) => {
         <Toolbar className={classes.toolBar}>
           <Container className={classes.Container}>
            
-            <Typography variant="h4">Skill Up Todo</Typography>
+            <Typography variant="h4">Samfrexz Todo</Typography>
             <Button
             className={classes.addBtn}
             onClick={handleClickOpen}

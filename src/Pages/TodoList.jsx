@@ -4,7 +4,7 @@ import React from 'react'
 import TodoItems from './TodoItems';
 
 
-const TodoList = ( {todos, group}) => {
+const TodoList = ( {todos}) => {
 
   
 
@@ -12,9 +12,9 @@ const TodoList = ( {todos, group}) => {
     <>
     <Container>
       {
-        todos.map((todo, index) => (
-          <Grid container>
-            <Grid item xs={12} lg={12} key={index + group}>
+        todos.map((todo) => (
+          <Grid container  key={todo.id}>
+            <Grid item xs={12} lg={12}>
 
               <TodoItems todo={todo} />
             </Grid>

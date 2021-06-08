@@ -102,7 +102,7 @@ const appStyles = makeStyles((theme) => ({
 
 
 
-const Header = ({all, done, pending, setTodos, active, setActive }) => {
+const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos }) => {
 
   // const [active, setActive] = useState('all')
 
@@ -156,7 +156,8 @@ const Header = ({all, done, pending, setTodos, active, setActive }) => {
     const newTodos = all.slice()
     // adding the new todo from the beginning
     newTodos.unshift(todo)
-    setTodos(newTodos)
+    setAllTodos(newTodos)
+    // setTodos(newTodos)
     setOpen(false)
     // this is to clear the form after submitting or saving
     setTitle("")

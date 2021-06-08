@@ -7,9 +7,6 @@ import { makeStyles } from '@material-ui/core'
 
 
 const itemStyles = makeStyles((theme) =>({
-  // contain: {
-  //   marginTop: '1rem'
-  // },
   grid: {
     background: '#ffff00',
   },

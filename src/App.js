@@ -36,24 +36,16 @@ function App() {
   const pending = allTodos.filter(todo => !todo.done);
 
   const [todos, setTodos] = useState(allTodos)
-
-  // const createTodo =(todo)=> {
-  //   // duplicating new Array
-  //   const newTodos = todos.slice()
-  //   // adding the new todo from the beginning
-  //   newTodos.unshift(todo)
-  //   console.log(11)
-  // }
-  
- 
-
+  const [active, setActive] = useState('all')
   return (
     <>
     <ThemeProvider theme={theme}>
 
-      <Header all={all} done={done} pending={pending} setTodos={setTodos} />
+      <Header all={all} done={done} pending={pending} setTodos={setTodos} active={active} setActive={setActive} />
      
-    <TodoList todos={todos} />
+    <TodoList todos={todos} group={active} />
+
+    
     </ThemeProvider>
     </>
   );

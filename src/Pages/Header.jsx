@@ -14,6 +14,7 @@ import Modals from './Modal';
 
 
 
+
 const appStyles = makeStyles((theme) => ({
   toolBar: {
     flexGrow: '1',
@@ -101,12 +102,9 @@ const appStyles = makeStyles((theme) => ({
 
 
 
+const Header = ({all, done, pending, setTodos, active, setActive }) => {
 
-
-
-const Header = ({all, done, pending, setTodos, }) => {
-
-  const [active, setActive] = useState('all')
+  // const [active, setActive] = useState('all')
 
   
  
@@ -136,6 +134,23 @@ const Header = ({all, done, pending, setTodos, }) => {
     setOpen(false);
   };
 
+  const [title, setTitle] = useState("")
+  const [priority, setPriority] = useState("")
+  const [description, setDescription] = useState("")
+
+  const handleTitle =(e)=> {
+    setTitle(e.target.value)
+  }
+
+  const handlePriority =(e)=> {
+    setPriority(e.target.value)
+  }
+
+  const handleDescription =(e)=> {
+    setDescription(e.target.value)
+  
+  }
+
   const createTodo =(todo)=> {
     // duplicating new Array
     const newTodos = all.slice()
@@ -143,8 +158,12 @@ const Header = ({all, done, pending, setTodos, }) => {
     newTodos.unshift(todo)
     setTodos(newTodos)
     setOpen(false)
-    console.log(11)
+    // this is to clear the form after submitting or saving
+    setTitle("")
+    setPriority("")
+    setDescription("")
   }
+
 
   const classes = appStyles()
 
@@ -154,7 +173,7 @@ const Header = ({all, done, pending, setTodos, }) => {
         <Toolbar className={classes.toolBar}>
           <Container className={classes.Container}>
            
-            <Typography variant="h4">Samfrexz Todo</Typography>
+            <Typography variant="h4">Skill Up Todo</Typography>
             <Button
             className={classes.addBtn}
             onClick={handleClickOpen}
@@ -195,11 +214,21 @@ const Header = ({all, done, pending, setTodos, }) => {
         
          handleClose={handleClose}
          open={open}
-        createTodo={createTodo} /> 
+         setOpen={setOpen}
+         createTodo={createTodo}
+         title={title}
+         priority={priority}
+         description={description}
+         handleTitle={handleTitle}
+         handlePriority={handlePriority}
+         handleDescription={handleDescription}
+          /> 
+
+          
         
       </Grid>
       </Container>
-
+      
       
     </>
    );

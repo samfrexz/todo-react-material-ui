@@ -4,7 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import React, { useState } from 'react'
+import React, { } from 'react'
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core';
 
@@ -25,30 +25,22 @@ const modStyles = makeStyles((theme) =>({
 
 
 
-const Modals = ({handleClickOpen, handleClose, open, createTodo}) => {
-  const [title, setTitle] = useState("")
-  const [priority, setPriority] = useState("")
-  const [descript, setDescript] = useState("")
-
-  const handleTitle =(e)=> {
-    setTitle(e.target.value)
-    console.log(title)
-  }
-
-  const handlePriority =(e)=> {
-    setPriority(e.target.value)
-    console.log(priority)
-  }
-
-  const handleDescript =(e)=> {
-    setDescript(e.target.value)
-    console.log(descript)
-  }
-
+const Modals = ({handleClickOpen,
+   handleClose,
+    open,
+     createTodo,
+      setOpen,
+       create,
+       handleTitle,
+       handlePriority,
+       handleDescription,
+       title,
+       priority,
+       description
+      }) => {
   
   
-  
-const todo = {title,priority,descript,done:false}
+const todo = {title,priority,description,num: 0, done:false}
 
   const classes = modStyles()
 
@@ -92,8 +84,8 @@ const todo = {title,priority,descript,done:false}
           className={classes.txtInput}
           id="outlined-multiline-static"
           label="Enter description"
-          value={descript}
-          onChange={handleDescript}
+          value={description}
+          onChange={handleDescription}
           multiline
           rows={4}
           variant="outlined"
@@ -106,7 +98,7 @@ const todo = {title,priority,descript,done:false}
           <Button onClick={handleClose} variant="contained" color="primary">
             Cancel
           </Button>
-          <Button onClick={() => createTodo(todo)} variant="contained" color="primary">
+          <Button onClick={ () => createTodo(todo)} variant="contained" color="primary">
             Save
           </Button>
         </DialogActions>
@@ -116,3 +108,4 @@ const todo = {title,priority,descript,done:false}
 }
  
 export default Modals;
+

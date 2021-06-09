@@ -18,7 +18,7 @@ const itemStyles = makeStyles((theme) =>({
   paper: {
     display: 'flex',
     alignItems: 'center',
-    padding: '0 5px',
+    padding: '0 0.7rem',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.1)',
     marginTop: '1rem',
     borderRadius: '7px',
@@ -28,7 +28,7 @@ const itemStyles = makeStyles((theme) =>({
   pap: {
     display: 'flex',
     alignItems: 'center',
-    padding: '0 5px',
+    padding: '0 0.7rem',
     marginTop: '0.2rem',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.1)',
     borderRadius: '7px',

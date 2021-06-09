@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import AddIcon from '@material-ui/icons/Add';
 import TextField from '@material-ui/core/TextField';
 import  Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -27,7 +26,6 @@ const appStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-
   btnContainer: {
     marginTop: '10rem',
     marginBottom: '2rem',
@@ -51,7 +49,7 @@ const appStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
     fontSize: '1.3rem',
     fontWeight: '800',
-    minWidth: '20%',
+    minWidth: '15%',
     '&:hover': {
       background: '#fff',
     }
@@ -64,7 +62,7 @@ const appStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
     fontSize: '1.3rem',
     fontWeight: '800',
-    minWidth: '20%',
+    minWidth: '15%',
     '&:hover': {
       background: '#fff',
     }
@@ -78,7 +76,7 @@ const appStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
     fontSize: '1.3rem',
     fontWeight: '800',
-    minWidth: '20%',
+    minWidth: '15%',
     '&:hover': {
       background: '#004374',
       color: '#fff'
@@ -92,7 +90,7 @@ const appStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
     fontSize: '1.3rem',
     fontWeight: '800',
-    minWidth: '20%',
+    minWidth: '15%',
     '&:hover': {
       background: '#004374',
       color: '#fff'
@@ -102,7 +100,7 @@ const appStyles = makeStyles((theme) => ({
 
 
 
-const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos }) => {
+const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos, search, setSearch }) => {
 
   // const [active, setActive] = useState('all')
 
@@ -126,8 +124,7 @@ const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos })
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
-    console.log(11)
+    setOpen(true)
   };
 
   const handleClose = () => {
@@ -148,7 +145,10 @@ const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos })
 
   const handleDescription =(e)=> {
     setDescription(e.target.value)
-  
+  }
+
+  const handleSearch =(e)=> {
+    setSearch(e.target.value)
   }
 
   const createTodo =(todo)=> {
@@ -157,9 +157,8 @@ const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos })
     // adding the new todo from the beginning
     newTodos.unshift(todo)
     setAllTodos(newTodos)
-    // setTodos(newTodos)
     setOpen(false)
-    // this is to clear the form after submitting or saving
+    // this is to clear or empty the form after submitting or saving
     setTitle("")
     setPriority("")
     setDescription("")
@@ -179,8 +178,9 @@ const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos })
             className={classes.addBtn}
             onClick={handleClickOpen}
              variant="contained"
-             endIcon={<AddIcon />}
-             >Add Todo</Button>
+            //  endIcon={<AddIcon />}
+             >Add Todo
+             </Button>
             
           </Container>
         </Toolbar>
@@ -196,9 +196,11 @@ const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos })
         <Grid item xs={12}>
         
          <TextField 
-         style={{background: '#fff', outline: 'none',}}
+         style={{background: '#fff', border: 'none',}}
           variant="outlined"
           id="input-with-icon-textfield"
+          value={search}
+          onChange={handleSearch}
           label="Search"
           fullWidth
           InputProps={{
@@ -212,7 +214,6 @@ const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos })
         </Grid>
 
        <Modals
-        
          handleClose={handleClose}
          open={open}
          setOpen={setOpen}
@@ -225,8 +226,6 @@ const Header = ({all, done, pending, setTodos, active, setActive, setAllTodos })
          handleDescription={handleDescription}
           /> 
 
-          
-        
       </Grid>
       </Container>
       
